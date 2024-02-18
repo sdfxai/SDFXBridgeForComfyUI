@@ -1,0 +1,12 @@
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+data/models/**/*.safetensors
+data/models/**/*.pt
+data/models/**/*.pth
+data/models/**/*.ckpt
+data/models/**/*.onnx
+data/models/**/*.bin
+data/models/**/*.yaml
