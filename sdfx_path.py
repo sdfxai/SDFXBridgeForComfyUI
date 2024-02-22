@@ -7,45 +7,43 @@ sdfx_config_file_name = 'sdfx.config.json'
 
 #=== Best effort to find sdfx_config_file_path ===
 def find_sdfx_config_path():
-  
   if args.sdfx_config_file is not None:
-    return args.sdfx_config_file
-  
+    if os.path.exists(args.sdfx_config_file):
+      return args.sdfx_config_file
   path = os.path.abspath(os.path.dirname(__file__))
-  found_path = None
   try:
     for _ in range(6):
       config_path = os.path.join(path, sdfx_config_file_name)
       if os.path.exists(config_path):
-        found_path = path
-
+        return config_path
       path = os.path.dirname(path)
   except Exception as e:
     print(f"Error File access : {e}")
-
-  return found_path
+  raise FileNotFoundError()
 
 #=== if path is relative return absolute ===
 def get_sdfx_absolute_path(path):
-  if os.path.isabs(path):
+  if path is None:
+    return None
+  elif os.path.isabs(path):
     return path
   else:
-    return os.path.join(find_sdfx_config_path(), path)
+    parent_path = os.path.dirname(find_sdfx_config_path())
+    return os.path.join(parent_path, path)
 
-gallery_path = get_sdfx_absolute_path('data/media/gallery')
-workflows_path = get_sdfx_absolute_path('data/media/worflows')
-templates_path = get_sdfx_absolute_path('data/media/gallery')
+isPathFound = True
+try:
+  gallery_path = get_sdfx_absolute_path('data/media/gallery')
+  workflows_path = get_sdfx_absolute_path('data/media/worflows')
+  templates_path = get_sdfx_absolute_path('data/media/gallery')
+except FileNotFoundError:
+  isPathFound = False
 
 #=== add all sdfx path to comfy folder_paths ===
 def load_sdfx_extra_path_config():
   global gallery_path, workflows_path, templates_path
-
-  sdfx_config_path = find_sdfx_config_path()
-  if(sdfx_config_path is None):
-    return
-  
-  sdfx_config_file = os.path.join(sdfx_config_path, sdfx_config_file_name)
   try:
+    sdfx_config_file = find_sdfx_config_path()
     with open(sdfx_config_file, 'r') as json_file:
       data = json.load(json_file)
 
@@ -94,17 +92,17 @@ def load_sdfx_extra_path_config():
         print("Setting sdfx templates path", templates_path)
 
   except json.JSONDecodeError as e:
-    print(f"[FATAL] {sdfx_config_file_name} is not valid, it will not be loaded !")
+    print(f"[SdfxForComfyUI] FATAL -> {sdfx_config_file_name} is not valid, it will not be loaded !")
   except FileNotFoundError:
-    print(f"[FATAL] {sdfx_config_file_name} not found")
+    print(f"[SdfxForComfyUI] FATAL -> {sdfx_config_file_name} not found and not specified")
   except Exception as e:
-    print(f"[FATAL] : {e}")
+    print(f"[SdfxForComfyUI] FATAL -> : {e}")
 
 def get_gallery_path():
-  return gallery_path
+  return None if not isPathFound else gallery_path
 
 def get_workflows_path():
-  return workflows_path
+  return None if not isPathFound else workflows_path
 
 def get_templates_path():
-  return templates_path
+  return None if not isPathFound else templates_path
