@@ -42,8 +42,8 @@ In the sdfx node directory, you will find a sample configuration file named `sdf
 
     "models": {
       "checkpoints": ["data/models/checkpoints"],
-      "clip": ["data/models/clip"],
-      // ... (other model paths)
+      "clip": ["data/models/clip"]
+      /* ... (other model paths) */
     }
   }
 }
