@@ -66,10 +66,9 @@ python main.py --sdfx-config-file=/path/to/sdfx.config.json
 Note: All relative paths configured in `sdfx.config.json` will be relative to the location of sdfx.config.json.
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the AGPL-3.0 license.
 
 ## Acknowledgments
 
 Special thanks to the SDFX and ComfyUI communities for their support and collaboration.
 
-For additional details and support, please refer to the [Contribution Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
