@@ -8,7 +8,7 @@ SdfxForComfyUI is a custom node designed for seamless integration between ComfyU
 
 1. Clone the repository into the ComfyUI custom_node directory:
     ```bash
-    git clone https://github.com/sdfxai/SdfxForComfyUI
+    git clone https://github.com/sdfxai/SdfxForComfyUI.git
     ```
 
 2. Install dependencies using pip:

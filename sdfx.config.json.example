@@ -3,7 +3,7 @@
     "disable-xformers": false,
     "preview-method": "taesd",
     "listen": true,
-    "enable-cors-header": false,
+    "enable-cors-header": true,
     "port": 8188
   },
 

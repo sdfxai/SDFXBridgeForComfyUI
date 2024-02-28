@@ -11,14 +11,17 @@ def find_sdfx_config_path():
     if os.path.exists(args.sdfx_config_file):
       return args.sdfx_config_file
   path = os.path.abspath(os.path.dirname(__file__))
+  config_path_found = None
   try:
     for _ in range(6):
       config_path = os.path.join(path, sdfx_config_file_name)
       if os.path.exists(config_path):
-        return config_path
+        config_path_found = config_path
       path = os.path.dirname(path)
   except Exception as e:
     print(f"Error File access : {e}")
+  if config_path_found is not None:
+    return config_path_found
   raise FileNotFoundError()
 
 #=== if path is relative return absolute ===
@@ -28,6 +31,11 @@ def get_sdfx_absolute_path(path):
   elif os.path.isabs(path):
     return path
   else:
+    sdfx_config_path
+    try:
+      sdfx_config_path = find_sdfx_config_path()
+    except FileNotFoundError:
+      sdfx_config_path = os.path.abspath(os.path.dirname(__file__))
     parent_path = os.path.dirname(find_sdfx_config_path())
     return os.path.join(parent_path, path)
 
