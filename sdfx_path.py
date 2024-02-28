@@ -100,11 +100,11 @@ def load_sdfx_extra_path_config():
         print("Setting sdfx templates path", templates_path)
 
   except json.JSONDecodeError as e:
-    print(f"[SdfxForComfyUI] FATAL -> {sdfx_config_file_name} is not valid, it will not be loaded !")
+    print(f"[SDFXBridgeForComfyUI] FATAL -> {sdfx_config_file_name} is not valid, it will not be loaded !")
   except FileNotFoundError:
-    print(f"[SdfxForComfyUI] FATAL -> {sdfx_config_file_name} not found and not specified")
+    print(f"[SDFXBridgeForComfyUI] FATAL -> {sdfx_config_file_name} not found and not specified")
   except Exception as e:
-    print(f"[SdfxForComfyUI] FATAL -> : {e}")
+    print(f"[SDFXBridgeForComfyUI] FATAL -> : {e}")
 
 def get_gallery_path():
   return None if not isPathFound else gallery_path
