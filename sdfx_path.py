@@ -31,12 +31,12 @@ def get_sdfx_absolute_path(path):
   elif os.path.isabs(path):
     return path
   else:
-    sdfx_config_path
+    sdfx_config_path = None
     try:
       sdfx_config_path = find_sdfx_config_path()
     except FileNotFoundError:
       sdfx_config_path = os.path.abspath(os.path.dirname(__file__))
-    parent_path = os.path.dirname(find_sdfx_config_path())
+    parent_path = os.path.dirname(sdfx_config_path)
     return os.path.join(parent_path, path)
 
 isPathFound = True
