@@ -13,6 +13,7 @@ To install the dependency, you can use the following command:
 ```bash
 git clone https://github.com/ltdrdata/ComfyUI-Manager.git
 cd ComfyUI-Manager && pip install -r requirements.txt
+```
 
 ## Installation
 
