@@ -26,6 +26,7 @@ def find_sdfx_config_path():
 
 #=== if path is relative return absolute ===
 def get_sdfx_absolute_path(path):
+  path = os.path.normpath(path)
   if path is None:
     return None
   elif os.path.isabs(path):
