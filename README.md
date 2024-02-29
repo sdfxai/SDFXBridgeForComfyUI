@@ -4,6 +4,16 @@
 
 SDFXBridgeForComfyUI is a custom node designed for seamless integration between ComfyUI and the SDFX solution. This custom node allows users to make ComfyUI compatible with SDFX when running the ComfyUI instance on their local machines.
 
+## Dependency
+
+Before proceeding with the installation, ensure that you have [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager) installed as a custom node. This is a mandatory dependency for the proper functioning of SDFXBridgeForComfyUI.
+
+To install the dependency, you can use the following command:
+
+```bash
+git clone https://github.com/ltdrdata/ComfyUI-Manager.git
+cd ComfyUI-Manager && pip install -r requirements.txt
+
 ## Installation
 
 1. Clone the repository into the ComfyUI custom_node directory:
