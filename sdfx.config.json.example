@@ -2,8 +2,8 @@
   "args": {
     "disable-xformers": false,
     "preview-method": "taesd",
-    "listen": true,
     "enable-cors-header": true,
+    "listen": "127.0.0.1",
     "port": 8188
   },
 

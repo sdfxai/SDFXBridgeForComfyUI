@@ -1,7 +1,11 @@
 import os
+import argparse
 import json
 import folder_paths
-from .prestartup_script import args
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--sdfx-config-file", type=str, default=None, help="Path for sdfx config file")
+args = parser.parse_args()
 
 sdfx_config_file_name = 'sdfx.config.json'
 
@@ -37,16 +41,13 @@ def get_sdfx_absolute_path(path):
       sdfx_config_path = find_sdfx_config_path()
     except FileNotFoundError:
       sdfx_config_path = os.path.abspath(os.path.dirname(__file__))
+      return os.path.join(sdfx_config_path, path)
     parent_path = os.path.dirname(sdfx_config_path)
     return os.path.join(parent_path, path)
 
-isPathFound = True
-try:
-  gallery_path = get_sdfx_absolute_path('data/media/gallery')
-  workflows_path = get_sdfx_absolute_path('data/media/worflows')
-  templates_path = get_sdfx_absolute_path('data/media/gallery')
-except FileNotFoundError:
-  isPathFound = False
+gallery_path = get_sdfx_absolute_path('data/media/gallery')
+workflows_path = get_sdfx_absolute_path('data/media/workflows')
+templates_path = get_sdfx_absolute_path('data/media/templates')
 
 #=== add all sdfx path to comfy folder_paths ===
 def load_sdfx_extra_path_config():
@@ -108,10 +109,10 @@ def load_sdfx_extra_path_config():
     print(f"[SDFXBridgeForComfyUI] FATAL -> : {e}")
 
 def get_gallery_path():
-  return None if not isPathFound else gallery_path
+  return gallery_path
 
 def get_workflows_path():
-  return None if not isPathFound else workflows_path
+  return workflows_path
 
 def get_templates_path():
-  return None if not isPathFound else templates_path
+  return templates_path
