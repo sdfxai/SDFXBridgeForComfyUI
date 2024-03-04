@@ -2,7 +2,7 @@
 
 ## Overview
 
-SDFXBridgeForComfyUI is a custom node designed for seamless integration between ComfyUI and the SDFX solution. This custom node allows users to make ComfyUI compatible with SDFX when running the ComfyUI instance on their local machines.
+SDFXBridgeForComfyUI is a custom node designed for seamless integration between ComfyUI and SDFX. This custom node allows users to make ComfyUI compatible with SDFX when running the ComfyUI instance on their local machines.
 
 ## Dependency
 
@@ -36,7 +36,7 @@ In the sdfx node directory, you will find a sample configuration file named `sdf
   "args": {
     "disable-xformers": false,
     "preview-method": "taesd",
-    "listen": true,
+    "listen": "127.0.0.1",
     "enable-cors-header": false,
     "port": 8188
   },
