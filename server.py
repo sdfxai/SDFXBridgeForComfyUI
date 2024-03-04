@@ -14,7 +14,7 @@ workflows_path = get_workflows_path()
 templates_path = get_templates_path()
 
 def get_media_url_from_params(url_path, filename, type, gallery):
-  return url_path + '/media?filename=' + filename + '&type=' + type + '&gallery=' + gallery
+  return url_path + '/sdfx/media?filename=' + filename + '&type=' + type + '&gallery=' + gallery
 
 def get_dir_by_model_id_and_type(model_id, dir_type):
   # === Todo handle other media types ===
