@@ -216,8 +216,8 @@ def add_sdfx_routes():
             uid = data.get('uid')
             name = data.get('name')
             dateCreated = data.get('dateCreated')
-            metas = data.get('metas')
-            list.append({ 'uid': uid, 'name': name, 'metas': metas, 'dateCreated': dateCreated})
+            meta = data.get('meta')
+            list.append({ 'uid': uid, 'name': name, 'meta': meta, 'dateCreated': dateCreated})
 
           except json.JSONDecodeError as e:
             return web.json_response({'error': 'invalid Json'}, status=400)
@@ -264,7 +264,7 @@ def add_sdfx_routes():
           filename = os.path.join(templates_path, f"{hash}.json")
         with open(filename, 'w') as file:
           json.dump(data, file)
-        response = {'uid': data.get('uid'), 'name': data.get('name'), 'metas': data.get('meta'), 'dateCreated': data.get('dateCreated')}
+        response = {'uid': data.get('uid'), 'name': data.get('name'), 'meta': data.get('meta'), 'dateCreated': data.get('dateCreated')}
         return web.json_response(response)
       except json.JSONDecodeError:
         return web.json_response({'error': 'invalid Json'}, status=400)
