@@ -55,7 +55,7 @@ and the absolute path of sdfx.config.json is `/x/y/sdfx.config.json`, the checkp
 ```/x/y/data/models/checkpoints```
 
 ## Usage Examples
-If you are already using ComfyUI extra_model_paths.yaml to configure the path of your models you don't need to redeclare it  
+If you don't want to change anything on your model path configuration or you are already using ComfyUI extra_model_paths.yaml to configure the path of your models you can simply delete everything from `sdfx.config.json` related to model path
 
 So a minimalist configuration could be : 
 
