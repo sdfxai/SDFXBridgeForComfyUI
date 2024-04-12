@@ -1,5 +1,11 @@
 # SDFXBridgeForComfyUI - ComfyUI Custom Node for SDFX Integration
 
+
+## :exclamation: Important :exclamation:
+
+If ComfyUI is not installed on your computer we strongly recommand you to follow the instructions directly on [SDFX](https://github.com/sdfxai/sdfx)
+and close this page.
+
 ## Overview
 
 SDFXBridgeForComfyUI is a custom node designed for seamless integration between ComfyUI and SDFX. This custom node allows users to make ComfyUI compatible with [SDFX](https://github.com/sdfxai/sdfx) when running the ComfyUI instance on their local machines.
