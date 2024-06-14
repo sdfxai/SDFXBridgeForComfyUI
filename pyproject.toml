@@ -1,0 +1,15 @@
+[project]
+name = "sdfxbridgeforcomfyui"
+description = "SDFXBridgeForComfyUI is a custom node designed for seamless integration between ComfyUI and SDFX. This custom node allows users to make ComfyUI compatible with SDFX when running the ComfyUI instance on their local machines."
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["lark"]
+
+[project.urls]
+Repository = "https://github.com/sdfxai/SDFXBridgeForComfyUI"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "SDFXBridgeForComfyUI"
+Icon = ""
